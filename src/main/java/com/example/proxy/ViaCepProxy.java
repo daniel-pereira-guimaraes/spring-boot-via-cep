@@ -1,17 +1,17 @@
-package com.example;
+package com.example.proxy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.dto.EnderecoDTO;
 
-@Service
-public class EnderecoService {
+@Component
+public class ViaCepProxy {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(EnderecoService.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ViaCepProxy.class);
 	
 	@Value("${viacep.url}")
 	private String url;

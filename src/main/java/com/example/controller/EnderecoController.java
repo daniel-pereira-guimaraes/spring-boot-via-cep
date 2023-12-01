@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.EnderecoService;
 import com.example.dto.EnderecoDTO;
+import com.example.proxy.ViaCepProxy;
 
 @RestController
 @RequestMapping("/endereco")
 public class EnderecoController {
 	
 	@Autowired
-	private EnderecoService service;
+	private ViaCepProxy viaCepProxy;
 	
 	@GetMapping("/{cep}")
 	public EnderecoDTO buscarPorCep(@PathVariable String cep) {
 		
-		return service.buscarPorCep(cep);
+		return viaCepProxy.buscarPorCep(cep);
 	}
 
 }
