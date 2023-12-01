@@ -7,19 +7,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dto.EnderecoDTO;
-import com.example.proxy.ViaCepProxy;
+import com.example.proxy.ViaCepProxyRestTemplate;
 
 @RestController
 @RequestMapping("/endereco")
 public class EnderecoController {
 	
 	@Autowired
-	private ViaCepProxy viaCepProxy;
+	private ViaCepProxyRestTemplate viaCepProxyRestTemplate;
 	
-	@GetMapping("/{cep}")
-	public EnderecoDTO buscarPorCep(@PathVariable String cep) {
+	@GetMapping("/{cep}/{proxy}")
+	public EnderecoDTO buscarPorCepRestTemplate(
+			@PathVariable String cep,
+			@PathVariable int proxy) {
 		
-		return viaCepProxy.buscarPorCep(cep);
+		if (proxy == 0) {
+			return viaCepProxyRestTemplate.buscarPorCep(cep);
+		} else {
+			return null;
+		}
 	}
 
 }

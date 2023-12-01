@@ -9,9 +9,9 @@ import org.springframework.web.client.RestTemplate;
 import com.example.dto.EnderecoDTO;
 
 @Component
-public class ViaCepProxy {
+public class ViaCepProxyRestTemplate {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(ViaCepProxy.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ViaCepProxyRestTemplate.class);
 	
 	@Value("${viacep.url}")
 	private String url;
